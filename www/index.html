@@ -35,22 +35,24 @@
   <body ng-app="starter">
 
     <ion-pane>
-      <ion-header-bar class="bar-stable">
+      <ion-header-bar class="bar-energized">
         <h1 class="title">CHANGED!</h1>
       </ion-header-bar>
-      <ion-content>
+      <ion-content ng-controller="TodoController">
         <div class = "list">
           <div class ="item item-input-inset">
             <label class="item-input-wrapper">
-              <input type="text" placeholder="enter todo item" />
+              <input type="text" placeholder="Enter list item!"
+              ng-model="todoModel.todo" />
             </label>
-            <button class = "button button-small">
+            <button class = "button button-energized" ng-click="addTodo()">
               Add
             </button>
           </div>
         </div>
         <ul class="list">
-          <li class="item">
+          <li class="item" ng-repeat="todo in todos track by $index">
+            {{todo}}
           </li>
         </ul>
       </ion-content>
